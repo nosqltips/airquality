@@ -1,0 +1,66 @@
+<div class="site-container">
+    <div class="rectangle"></div>
+    <div class="logo"> >Air Quality< </div>
+    <div class="search">
+        <form id="searchForm">
+            <div class="search-field">
+                <input id="searchInput" type="text" name="search" placeholder="Search for anything" ng-model="terms"/>
+            </div>
+            <div>
+                <input id="searchButton" class="go" type="submit" ng-click="search(terms, stateOption, startDate, endDate)" value="GO">
+                <input id="searchButton" class="toggle-sentiment" type="submit" ng-click="toggleSentiment(terms, stateOption, startDate, endDate)" value="{{sentimentText}}">
+            </div>
+            <div>
+                <select id="selectState" ng-model="stateOption" ng-options="state for state in states">
+                    <option value="">- any location -</option>
+                </select>
+                <button id="dateButton" type="button" class="btn btn-default" ng-click="eOpen($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                <input id="datePicker" type="text" placeholder="- end date -" class="form-control" datepicker-popup="{{format}}" ng-model="endDate" is-open="eOpened" 
+                       min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" close-text="Close" />
+
+                <button id="dateButton" type="button" class="btn btn-default" ng-click="sOpen($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                <input id="datePicker" type="text" placeholder="- start date -" class="form-control" datepicker-popup="{{format}}" ng-model="startDate" is-open="sOpened" 
+                       min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" close-text="Close" />
+            </div>
+            <div>
+                <span class="total-results">Results: {{query.totalResults}}</span>
+                <span class="total-time">Time: {{query.timeMillis}}(millis)</span>
+                <span class="total-tweets">Total Tweets: {{countResult.count}}</span>
+            </div>
+        </form>
+        <div ng-show="error">
+            <span class="error">{{error}}</span>
+        </div>
+    </div>
+        
+    <div class="table-container">
+        <div class="chartBox"><linechart data="tweetsByHour" options="tweetsByHourOptions" mode=""></linechart></div>    
+        <div class="panelBox" id="map"></div>    
+
+        <div class="main-column"> 
+            <span class="spinner" us-spinner="{radius:30, width:8, length: 16}" spinner-key="mainSpinner"></span>
+            <table ng-table="tableParams" class="table" id="mainTable">
+                <tr class='animate-enter1' ng-repeat="tweet in $data">
+                    <td style="width: 700px" ng-class="{sentVeryPositive: tweet.sentiment === 4, sentPositive: tweet.sentiment === 3, sentNegative: tweet.sentiment === 1, sentVeryNegative: tweet.sentiment === 0}  ">
+                        <span>
+                            <strong style="margin-right: 20px">{{tweet.relativeTime}}</strong>
+<!--                            <a href="http://www.twitter.com/{{tweet.screenName}}" target="_blank" class="tweeter">@{{tweet.screenName}}</a>-->
+                            <a href="" class="tweeter" ng-click="searchUser(tweet.screenName)">@{{tweet.screenName}}</a>
+                        </span>
+                        <span class="similar"><a href="index.html#/view1" ng-click="getMlt(tweet.docId)">Similar</a></span>
+                        <br/> 
+                        <div ng-bind-html="tweet.text"></div>
+                        <div ng-hide="tweet.place.name === 'null'">
+                            <a href="" style="color: blue" ng-click="searchPlace(tweet.place.name)">{{tweet.place.name}}</a>
+                            <span class="dropt" style="float:right;width:20px;" ng-click="mo(tweet.location.geo, tweet.screenName)" ><img src="https://cdn4.iconfinder.com/data/icons/eldorado-mobile/40/location_1-512.png" style="float:right;width:20px; height:20px;">
+                                <span style="float:right">Click to get to the exact location in the map</span></span>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    
+    <div class="background">
+    </div>
+</div>
+

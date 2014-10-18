@@ -1,0 +1,279 @@
+/* app css stylesheet */
+body {
+	font-family: "Arial"
+}
+a:link {
+        color: #051358;
+}
+a:visited {
+        color: #051358;
+}
+.site-container {
+	position: relative;
+	width: 1120px;
+	min-width: 900px;
+	margin: 0 auto;
+	z-index: 1;
+}
+.logo {
+	width: 1250px;
+	margin: 0 auto;
+	color: #BBBBBB;
+        text-shadow: 10px 10px 20px #000000;
+	font-size: 128px;
+	font-weight: bold;
+	font-family: "Arial";
+	text-align: center;
+}
+
+#selectState {
+        float: left;
+        margin-left: 10px;
+        margin-top: 10px;
+        height: 30px;
+        font-size: 18px;
+        background-color: orange;
+}
+#datePicker {
+        float: right;
+        width: 130px;
+        margin: auto; 
+        height: 30px;
+        font-size: 18px;
+        background-color: orange;
+        margin-left: 5px;
+        margin-top: 10px;
+}
+#dateButton {
+        float: right;
+        height: 30px;
+        margin-top: 10px;
+}
+
+.spinner {
+        margin-top: 300px;
+}
+.search {
+	width: 535px;
+	margin: 0 auto;
+}
+.search-field {
+	float: left;
+	width: 365px;
+	margin: 0 10px;
+	-webkit-appearance: none;
+}
+#searchForm {
+        margin-left: 5px;
+        float:left;
+        width: 590px;
+}
+#selectType {
+        margin: auto; 
+        height: 30px;
+        font-size: 18px;
+        background-color: orange;
+}
+#searchInput {
+        margin: auto; 
+        height: 30px;
+        background-color: white
+}
+#searchButton {
+        margin: auto; 
+        height: 30px;
+        font-size: 18px;
+        background-color: orange;
+}
+*:focus {
+        outline: 0;
+}
+input {
+	width: 100%;
+	height: 30px;
+	-webkit-box-shadow: 2px 2px 5px 0px #a0a0a0;
+	-moz-box-shadow: 2px 2px 5px 0px #a0a0a0;
+	box-shadow: 2px 2px 5px 0px #a0a0a0;
+}
+.tweeterDrop {
+	float: left;
+	border: 0;
+	overflow: hidden;
+	-webkit-box-shadow: 2px 2px 5px 0px #6b6b6b;
+	-moz-box-shadow: 2px 2px 5px 0px #6b6b6b;
+	box-shadow: 2px 2px 5px 0px #6b6b6b;
+}
+.total-results {
+	float: left;
+	margin-top: 10px;
+	margin-left: 10px;
+	color: #051358;
+}
+.total-time {
+	float: left;
+	margin-top: 10px;
+	margin-left: 20px;
+	color: #051358;
+}
+.total-tweets {
+	float: right;
+	margin-top: 10px;
+	color: #051358;
+}
+.toggle-sentiment {
+        float: right;
+        width: 140px;
+}
+.go {
+        width: 50px;
+}
+.error {
+	float: right;
+	margin-top: 10px;
+	margin-left: 10px;
+	color: red;
+}
+.table-container {
+	float: left;
+	width: 1250px;
+	min-height: 200px;
+	margin: 15px auto;
+}
+#map {  
+        float: left;
+        height:750px;
+        width: 540px;
+}
+.main-column {
+	float: right;
+	width: 700px;
+	min-height: 450px;
+	background-color: #F5F5F5;
+	overflow: hidden;	
+        border-radius: 5px;
+	-webkit-box-shadow: 2px 3px 20px 3px #b3b3b3;
+	-moz-box-shadow: 2px 3px 20px 3px #b3b3b3;
+	box-shadow: 0px 0px 20px 3px #b3b3b3;
+}
+.background {
+	position: relative;
+	width: 400px;
+	top: 0;
+	bottom: 0;
+	left: 50%;
+	margin-left: -700px;
+	z-index: -999;
+}
+.rectangle {
+	width: 1000px;
+        height: 2500px;
+	position: absolute;
+	top: -20px;
+	bottom: 0px;
+	left: 50%;
+	margin-left: -1300px;
+	background-color: #051358;
+	z-index: -9999;
+}
+input[type=submit] {
+	height: 30px;
+	border: 0;
+	color: #000;
+	font-size: 18px;
+	text-align: center;
+	background-color: #f6921e;
+	-webkit-box-shadow: 2px 2px 5px 0px rgba(87,87,87,1);
+	-moz-box-shadow: 2px 2px 5px 0px rgba(87,87,87,1);
+	box-shadow: 2px 2px 5px 0px rgba(87,87,87,1);
+	cursor: pointer;
+}
+.box {
+        width: 90%;
+        float: left;
+        margin: 10px;
+        word-wrap: break-word; 
+        overflow: auto;
+}
+.panelBox {
+        float: left;
+        box-shadow: 0px 0px 20px 3px #b3b3b3;
+        border-radius: 4px;
+        background-color: #F5F5F5;
+        border-radius: 5px;
+	overflow: hidden;	
+}
+.chartBox {
+        width: 100%;
+        height: 200px;
+        float: left;
+        margin-bottom: 10px;
+        box-shadow: 0px 0px 20px 3px #b3b3b3;
+        border-radius: 5px;
+        background-color: #F5F5F5;
+        word-wrap: break-word;
+        overflow: hidden;
+}
+.counts {
+        float: right; 
+        color: #888888    
+}
+.tweeter {
+        font-weight: bold;
+        color: darkgrey    
+}
+.similar {
+        float: right;
+}
+.similar.a:link {
+        color: orange;
+}
+span.dropt {
+        border-bottom: thin dotted; 
+        background: #ffeedd;
+}
+span.dropt:hover {
+        text-decoration: none; 
+        background: #ffffff; 
+        z-index: 6; 
+}
+span.dropt span {
+        position: absolute; 
+        left: -9999px;
+        margin: 20px 0 0 0px; 
+        padding: 3px 3px 3px 3px;
+        border-style: solid; 
+        border-color: black; 
+        border-width: 1px; 
+        z-index: 6;
+}
+span.dropt:hover span {
+        left: 20%; 
+        background: #ffffff;
+} 
+span.dropt span {
+        position: absolute; 
+        left: -9999px;
+        margin: 4px 0 0 0px; 
+        padding: 3px 3px 3px 3px; 
+        border-style: solid; 
+        border-color: black; 
+        border-width: 1px;
+}
+span.dropt:hover span {
+        margin: 20px 0 0 170px; 
+        background: #ffffff; 
+        z-index: 6;
+}
+
+.sentVeryPositive {
+    background: #7aba7b
+}
+.sentPositive {
+    background: #c9e2b3
+}
+.sentNegative {
+    background: #e6c1c7
+}
+.sentVeryNegative {
+    background: #c9534f
+}
