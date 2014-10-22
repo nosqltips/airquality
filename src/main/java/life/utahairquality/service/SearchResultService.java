@@ -65,7 +65,6 @@ public class SearchResultService {
             result.setDocId(hit.getId());
             String text = (String) fields.get(SearchField.TEXT.getName());
             result.setText(mangle(text));
-          //  result.setSource((String) fields.get(SearchField.SOURCE.getName()));
             result.setCreatedAt((String) fields.get("created_at"));
             result.setSource((String) fields.get(SearchField.SOURCE.getName()));
             result.setRelativeTime(DateUtil.formatRelativeTime((String) fields.get(SearchField.CREATED_AT.getName())));
@@ -117,10 +116,13 @@ public class SearchResultService {
                 .replaceAll("<a href=\"\" target=\"_blank\" onmouseout=\"this.className=''\" onmouseover=\"this.className='ui-state-hover'\"></a>");
         // Replace @Refs with HREFS
         text = RegexUtil.AT_REF.matcher(text)
-                .replaceAll("<a href=\"http://www.twitter.com/$2\" target=\"_blank\" onmouseout=\"this.className=''\" onmouseover=\"this.className='ui-state-hover'\">$1</a>");
+
+                .replaceAll("<a href=\"\" class=\"tweeter\" ng-click=\"searchUser(\'$2\')\">$1</a>");
+//                .replaceAll("<a href=\"http://www.twitter.com/$2\" target=\"_blank\" onmouseout=\"this.className=''\" onmouseover=\"this.className='ui-state-hover'\">$1</a>");
 
         text = RegexUtil.HASH_REF.matcher(text)
-                .replaceAll("<a href=\"http://www.twitter.com/search?q=$2\" target=\"_blank\" onmouseout=\"this.className=''\" onmouseover=\"this.className='ui-state-hover'\">$1</a>");
+//                .replaceAll("<a href=\"http://www.twitter.com/search?q=$2\" target=\"_blank\" onmouseout=\"this.className=''\" onmouseover=\"this.className='ui-state-hover'\">$1</a>");
+                .replaceAll("<a href=\"\" class=\"tweeter\" ng-click=\"searchOther(\'$2\')\">$1</a>");
         
         return text;
     }

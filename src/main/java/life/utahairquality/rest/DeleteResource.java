@@ -25,21 +25,20 @@ public class DeleteResource {
     /**
      * 
      * @param terms
-     * @param screenName
      * @param docId
      * @return 
      */
-    @GET
-    @Produces("application/json")    
-    public Boolean deleteByQuery(
-            @QueryParam("terms") String terms, 
-            @QueryParam("docId") String docId) {
-
-        SearchQuery query = new SearchQuery();
-        query.setTerms(terms);
-        query.setDocId(docId);
-        
-        return delete.deleteByQuery(query);
-    }
+//    @GET
+//    @Produces("application/json")    
+//    public Boolean deleteByQuery(
+//            @QueryParam("terms") String terms, 
+//            @QueryParam("docId") String docId) {
+//
+//        SearchQuery query = new SearchQuery();
+//        query.setTerms(terms);
+//        query.setDocId(docId);
+//        
+//        return delete.deleteByQuery(query);
+//    }
 }
 

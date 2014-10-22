@@ -44,12 +44,11 @@
                     <td style="width: 700px" ng-class="{sentVeryPositive: tweet.sentiment === 4, sentPositive: tweet.sentiment === 3, sentNegative: tweet.sentiment === 1, sentVeryNegative: tweet.sentiment === 0}  ">
                         <span>
                             <strong style="margin-right: 20px">{{tweet.relativeTime}}</strong>
-<!--                            <a href="http://www.twitter.com/{{tweet.screenName}}" target="_blank" class="tweeter">@{{tweet.screenName}}</a>-->
                             <a href="" class="tweeter" ng-click="searchUser(tweet.screenName)">@{{tweet.screenName}}</a>
                         </span>
-                        <span class="similar"><a href="index.html#/view1" ng-click="getMlt(tweet.docId)">Similar</a></span>
+                        <span class="similar"><a href="" ng-click="getMlt(tweet.docId)">Similar</a></span>
                         <br/> 
-                        <div ng-bind-html="tweet.text"></div>
+                        <div compile="tweet.text"></div>
                         <div ng-hide="tweet.place.name === 'null'">
                             <a href="" style="color: blue" ng-click="searchPlace(tweet.place.name)">{{tweet.place.name}}</a>
                             <span class="dropt" style="float:right;width:20px;" ng-click="mo(tweet.location.geo, tweet.screenName)" ><img src="https://cdn4.iconfinder.com/data/icons/eldorado-mobile/40/location_1-512.png" style="float:right;width:20px; height:20px;">

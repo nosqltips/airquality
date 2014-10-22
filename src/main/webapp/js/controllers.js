@@ -98,6 +98,10 @@ angular.module('airQualityApp.controllers', []).
             $scope.terms = "@" + screenName;
             $scope.search($scope.terms, null, null, null);
         }
+        $scope.searchOther = function(value) {
+            $scope.terms = value;
+            $scope.search($scope.terms, null, null, null);
+        }
         $scope.searchPlace = function(place) {
             $scope.place = place;
             $scope.terms = place;
