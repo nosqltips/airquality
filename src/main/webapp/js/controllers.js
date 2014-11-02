@@ -3,7 +3,7 @@
 /* Controllers
  * created in: March, 2014
  * author: Zepeng Zhao
- * */
+ */
 angular.module('airQualityApp.controllers', []).
     controller('TweetCtrl', function($scope, $log, ngTableParams, usSpinnerService, searchFactory, countFactory, mltFactory, deleteFactory, facetFactory) {
         // create a map in the "map" div, set the view to a given place and zoom
@@ -22,7 +22,6 @@ angular.module('airQualityApp.controllers', []).
                 page: 1,
                 count: 25
             }, {
-                // Bug: total doesn't seem to update after first setting
                 total: 0,
                 getData: function($defer, params) {
                     params.total($scope.data.length);
@@ -35,7 +34,7 @@ angular.module('airQualityApp.controllers', []).
         $scope.tweetsByHourOptions = {
           axes: {
             x: {key: 'time', 
-                labelFunction: function(value) {return moment(value).fromNow()}, 
+                labelFunction: function(value) { return moment(value).fromNow(); }, 
                 type: 'linear'},
             y: {type: 'linear'}
           },
@@ -53,7 +52,7 @@ angular.module('airQualityApp.controllers', []).
           drawLegend: true,
           drawDots: true,
           columnsHGap: 10
-        }
+        };
 
         $scope.mo = function(geo) {
             if ($scope.circle !== undefined) {
@@ -71,7 +70,6 @@ angular.module('airQualityApp.controllers', []).
         };
 
         $scope.countResult = countFactory.count();
-        $scope.searchOption = ["Tweet", "Tweeter"];
         $scope.duration = ["Day", "Week", "Month", "Year"];
         $scope.states = ["Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware", "Florida", "Georgia", "Hawaii", "Idaho", 
             "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri", 
@@ -97,16 +95,16 @@ angular.module('airQualityApp.controllers', []).
         $scope.searchUser = function(screenName) {
             $scope.terms = "@" + screenName;
             $scope.search($scope.terms, null, null, null);
-        }
+        };
         $scope.searchOther = function(value) {
             $scope.terms = value;
             $scope.search($scope.terms, null, null, null);
-        }
+        };
         $scope.searchPlace = function(place) {
             $scope.place = place;
             $scope.terms = place;
             $scope.search(null, $scope.place, null, null);
-        }
+        };
         $scope.search = function(terms, place, startDate, endDate) {
             // This is to get around a curious Angular request function
             if (terms !== undefined && terms !== null) {
@@ -132,18 +130,18 @@ angular.module('airQualityApp.controllers', []).
                 $scope.data = data;
                 $scope.error = null;
             } else {
-                $scope.error = "No results available. Showing previous results."
+                $scope.error = "No results available. Showing previous results.";
             }
             $scope.facetRequests = result["requests"];
             $scope.updateFacets();
             $scope.updateTable();
             $scope.updateMap();
-        }
+        };
         
         $scope.updateTable = function() {
             $scope.tableParams.data = $scope.data;
             $scope.tableParams.reload();
-        }
+        };
         
         $scope.updateFacets = function() {
             for (var i=0; i < $scope.facetRequests.length; i++) {
@@ -151,7 +149,7 @@ angular.module('airQualityApp.controllers', []).
                     $scope.tweetsByHour = $scope.facetRequests[i].selectables;
                 }
             }
-        }
+        };
 
         $scope.resetMap = function() {
             map.setView([39.5015, -111.555], 2);
@@ -161,7 +159,7 @@ angular.module('airQualityApp.controllers', []).
             if ($scope.layerGroup !== undefined) {
                 map.removeLayer($scope.layerGroup);
             }
-        }
+        };
         
         $scope.updateMap = function() {
             $scope.resetMap();
@@ -184,7 +182,7 @@ angular.module('airQualityApp.controllers', []).
                 $scope.updateTable();
             });
             map.addLayer($scope.layerGroup);
-        }
+        };
         
         $scope.clusterTweets = function(children) {
             var contents = [];
@@ -251,7 +249,7 @@ angular.module('airQualityApp.controllers', []).
             }
             
             $scope.search(terms, opt, place, startDate, endDate, $scope.sentiment);
-        }
+        };
         
         // Our starting point
         window.setTimeout(
